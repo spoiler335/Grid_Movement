@@ -25,9 +25,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        //StartCoroutine(Move(direction));
+        //Moving forward
         transform.position += transform.up*speed*Time.deltaTime; 
         
+        #region change direction
         if(swipeControls.SwipeLeft)
         {
             transform.rotation = Quaternion.Euler(0,0,90);
@@ -51,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,0,0);
             Debug.Log("Up");
         }
-
+        #endregion
+        
         //checkBounds
         if(rt.position.y > boundUp)
         {
@@ -80,10 +82,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void checkBounds()
-    {
-        
-    }
+    
 
     
 }
